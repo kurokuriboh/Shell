@@ -12,10 +12,10 @@ Shell is a simulator of Linux's shell.
 # The command line must be done in the main directory
 
 # Compile the source files
-javac -classpath lib/* src/*.java
+javac -classpath src/*.java
 
 # Run the source files
-java -cp lib/*:src/ Shell
+java -cp src/ Shell
 ```
 
 ## TODOS
