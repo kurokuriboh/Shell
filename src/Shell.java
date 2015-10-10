@@ -62,13 +62,26 @@ public class Shell {
     }
 
     /**
-     *  Concatenate file(s), or standard input, to standard output.
+     *  Concatenate file(s), or standard input, to standard output. 
+     *  With no FILE, or when FILE is -, read standard input.
+     *
+     *  Syntax
+     *        cat [Options] [File]...
+     *
+     *  @param  commandArgs             command and command's arguments
+     *
+     *  @throws FileNotFoundException   if the file does not exist
      */
-    public static void cat(String[] commandArgs) {
+    public static void cat(String[] commandArgs) throws FileNotFoundException {
         if (commandArgs.length == 1) {
             Scanner input = new Scanner(System.in);
             boolean catOn = true;
             while (catOn) {
+                System.out.println(input.nextLine());
+            }
+        } else {
+            Scanner input = new Scanner(new File(commandArgs[1]));
+            while (input.hasNextLine()) {
                 System.out.println(input.nextLine());
             }
         }
